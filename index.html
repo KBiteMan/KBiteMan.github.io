@@ -1,12 +1,14 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BitMan</title><meta name="author" content="BitMan"><meta name="copyright" content="BitMan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BitMan - 好好生活</title><meta name="author" content="BitMan,bite_man@163.com"><meta name="copyright" content="BitMan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="好好生活">
+<meta property="og:type" content="website">
 <meta property="og:title" content="BitMan">
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="BitMan">
+<meta property="og:description" content="好好生活">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/head_dragon.png">
 <meta property="article:author" content="BitMan">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/img/head_dragon.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<meta name="twitter:image" content="http://example.com/img/head_dragon.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: undefined,
@@ -30,9 +32,9 @@
     day: '天前',
     month: '个月前'
   },
-  copyright: undefined,
+  copyright: {"limitCount":50,"languages":{"author":"作者: BitMan","link":"链接: ","source":"来源: BitMan","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
   lightbox: 'fancybox',
-  Snackbar: undefined,
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
   source: {
     jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
     justifiedGallery: {
@@ -53,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2021-07-07 13:55:54'
+  postUpdate: '2021-07-07 17:33:06'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -124,8 +126,12 @@
       }
       const t = saveToLocal.get('theme')
     
-          if (t === 'dark') activateDarkMode()
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
           else if (t === 'light') activateLightMode()
+          else activateDarkMode()
         
       const asideStatus = saveToLocal.get('aside-status')
       if (asideStatus !== undefined) {
@@ -142,7 +148,104 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/head_dragon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">1</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://images.pexels.com/photos/931018/pexels-photo-931018.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">BitMan</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">BitMan</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/07/07/hello-world/" title="Hello World">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/07/07/hello-world/" title="Hello World">Hello World</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-07T02:29:15.355Z" title="发表于 2021-07-07 10:29:15">2021-07-07</time></span></div><div class="content">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/head_dragon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://images.pexels.com/photos/931018/pexels-photo-931018.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">BitMan</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">BitMan</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/07/07/gradle/" title="Gradle">     <img class="post_bg" src="https://images.pexels.com/photos/1761279/pexels-photo-1761279.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Gradle"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/07/07/gradle/" title="Gradle">Gradle</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-07T06:04:34.790Z" title="发表于 2021-07-07 14:04:34">2021-07-07</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Android/">Android</a></span></div><div class="content">Projects 和 tasksprojects 和 tasks是 Gradle 中最重要的两个概念。
+任何一个 Gradle 构建都是由一个或多个 projects 组成。每个 project 包括许多可构建组成部分。 这完全取决于你要构建些什么。举个例子，每个 project 或许是一个 jar 包或者一个 web 应用，它也可以是一个由许多其他项目中产生的 jar 构成的 zip 压缩包。一个 project 不必描述它只能进行构建操作。它也可以部署你的应用或搭建你的环境。不要担心它像听上去的那样庞大。 Gradle 的 build-by-convention 可以让您来具体定义一个 project 到底该做什么。
+每个 project 都由多个 tasks 组成。每个 task 都代表了构建执行过程中的一个原子性操作。如编译，打包，生成 javadoc，发布到某个仓库等操作。
+创建build.gradle文件，所有的任务均在该文件内书写
+创建快速任务123task demo &lt;&lt; &#123;    println &#x27;你好&#x27;&#125;
+
+执行任 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/07/07/kotlin/" title="Kotlin">     <img class="post_bg" src="https://images.pexels.com/photos/2225203/pexels-photo-2225203.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Kotlin"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/07/07/kotlin/" title="Kotlin">Kotlin</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-07T06:04:34.788Z" title="发表于 2021-07-07 14:04:34">2021-07-07</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Android/">Android</a></span></div><div class="content">基本数据类型
+
+
+类型
+位宽度
+
+
+
+Double
+64
+
+
+Float
+32
+
+
+Long
+64
+
+
+Int
+32
+
+
+Short
+16
+
+
+Byte
+8
+
+
+
+你可以使用下划线划分数字，易读：val oneMillion = 1_000_000
+
+类型转化与Java不同，必须显示转换
+12var b:Byte = 1;var c:Int = b.toInt();
+转换方法：
+1234567toByte(): BytetoShort(): ShorttoInt(): InttoLong(): LongtoFloat(): FloattoDouble(): DoubletoChar(): Char
+
+
+但有些情况下是可以进行转换的，前提是可以根据上下文环境推断出正确的数据类型而且数学操作符会做相应的重载。
+
+val l = 1L + 3 // Long + Int =&gt; Long
+位操作1234567shl(bits) – 左移位 (Java’s &lt;&lt;)shr(bits) – 右移位 (Java’s &gt;&gt;)ushr(bits) – 无符号右移位 (Java ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/07/07/greendao/" title="GreenDao">     <img class="post_bg" src="https://images.pexels.com/photos/1089280/pexels-photo-1089280.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GreenDao"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/07/07/greendao/" title="GreenDao">GreenDao</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-07T06:04:34.784Z" title="发表于 2021-07-07 14:04:34">2021-07-07</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Android/">Android</a></span></div><div class="content">Greendao的使用一、引入(1)工程build.gradle:12345678910111213141516171819202122buildscript &#123;    repositories &#123;        jcenter()        //添加maven        mavenCentral()    &#125;    dependencies &#123;        classpath &#x27;com.android.tools.build:gradle:2.3.2&#x27;        //注意版本号        classpath &#x27;org.greenrobot:greendao-gradle-plugin:3.2.2&#x27;    &#125;&#125;allprojects &#123;    repositories &#123;        jcenter()    &#125;&#125;task clean(type: Delete) &#123;    delete rootProject.buil ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/07/07/animation/" title="属性动画">     <img class="post_bg" src="https://images.pexels.com/photos/590493/pexels-photo-590493.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="属性动画"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/07/07/animation/" title="属性动画">属性动画</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-07T06:04:34.778Z" title="发表于 2021-07-07 14:04:34">2021-07-07</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Android/">Android</a></span></div><div class="content">1.Android动画的分类
+帧动画（Frame Animation）：一系列的图片在同一个位置进行连贯的替换操作
+补间动画（Tween Animation）：专门用于View，可以实现透明度、缩放、旋转和平移四种效果。
+属性动画（Property Animation）：表面上效果和补间动画差不多。
+
+
+补间动画和属性动画之间最大的差异：补间动画只能作用于View，并且只能简单的去进行透明度、缩放、旋转和平移这四种动画，其他的比如去更改颜色，字体大小粗细等就无能为力了。但是属性动画，可以设置在任何对象上，并且可以去改变对象的属性。
+
+2.属性动画准许定义的参数
+持续时间，默认为300ms。
+时间差值
+重复次数和行为
+动画集合（多个动画组合在一起）
+帧刷新延迟,默认10ms；但最终靠系统的整体繁忙程度和底层定时器服务的速度。
+
+3.ObjectAnimatorObjectAnimator是最常用的一个，其使用相对简单，只要设置几个参数，一个属性动画就实现了。常用API
+
+
+
+返回值类型
+方法名
+功能
+
+
+
+ObjectAnimator
+clone()
+返回一个该对象的副本
+
+
+Strin ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/07/07/Retrofit/" title="Retrofit源码解析">     <img class="post_bg" src="https://images.pexels.com/photos/1668928/pexels-photo-1668928.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Retrofit源码解析"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/07/07/Retrofit/" title="Retrofit源码解析">Retrofit源码解析</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-07T06:04:34.755Z" title="发表于 2021-07-07 14:04:34">2021-07-07</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Android/">Android</a></span></div><div class="content">
+Retrofit是一个基于OKHttp的网络请求框架，具有高解耦，支持RxJava和RxAndroid，支持多种Json解析框架，代码风格使用注解方式,简洁易懂等诸多优点。
+
+Retrofit的使用在这里就不赘述了，网上有很多教程。
+1.Retrofit类Retrofit的创建使用了构造者模式，我们从他的构造者来开始分析。
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113public static final class Builder &#123;    private final Platform platform;//可以获取平台信息的类    private @Null ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/07/07/0kHttp3/" title="OkHttp3">     <img class="post_bg" src="https://images.pexels.com/photos/290470/pexels-photo-290470.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="OkHttp3"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/07/07/0kHttp3/" title="OkHttp3">OkHttp3</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-07T06:04:34.743Z" title="发表于 2021-07-07 14:04:34">2021-07-07</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Android/">Android</a></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/07/07/selfView/" title="自定义控件">     <img class="post_bg" src="https://images.pexels.com/photos/4577781/pexels-photo-4577781.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="自定义控件"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/07/07/selfView/" title="自定义控件">自定义控件</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-07T06:04:34.738Z" title="发表于 2021-07-07 14:04:34">2021-07-07</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Android/">Android</a></span></div><div class="content">我们先来了解一下Android的控件框架.在Android中控件大致被分为两类,View和ViewGroup.ViewGroup作为父控件包含多个View控件
+
+自定义控件的一般步骤:
+
+
+自定义属性
+在自定义的构造函数中获取自定义属性
+重写onMeasure()方法,对控件进行测量
+重写onDraw()方法对控件进行绘制
+重写onLayout方法,进行定位,即在父控件中的位置
+
+我们来简单的看一个自定义控件是如何实现的:
+1.自定义资源文件12345678&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;resources&gt;    &lt;declare-styleable name=&quot;CustomTitleView&quot;&gt;        &lt;attr name=&quot;titleText&quot; format=&quot;string&quot;/&gt;        &lt;attr name=&quot;titleColor&quot; format= ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/07/07/hello-world/" title="Hello World">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/07/07/hello-world/" title="Hello World">Hello World</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-07T02:29:15.355Z" title="发表于 2021-07-07 10:29:15">2021-07-07</time></span></div><div class="content">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
 Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;
 
 More info: Writing
@@ -155,7 +258,14 @@ More info: Generating
 Deploy to remote sites1$ hexo deploy
 
 More info: Deployment
-</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/head_dragon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">BitMan</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">1</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/KBiteMan"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">好好学习</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/07/07/hello-world/" title="Hello World"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2021/07/07/hello-world/" title="Hello World">Hello World</a><time datetime="2021-07-07T02:29:15.355Z" title="发表于 2021-07-07 10:29:15">2021-07-07</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-comment-dots"></i><span>最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/07/"><span class="card-archive-list-date">七月 2021</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">1</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-07-07T05:55:54.339Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 By BitMan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script>var preloader = {
+</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/head_dragon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">BitMan</div><div class="author-info__description">好好生活</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/KBiteMan"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">好好学习</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/07/07/gradle/" title="Gradle"><img src="https://images.pexels.com/photos/1761279/pexels-photo-1761279.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Gradle"/></a><div class="content"><a class="title" href="/2021/07/07/gradle/" title="Gradle">Gradle</a><time datetime="2021-07-07T06:04:34.790Z" title="发表于 2021-07-07 14:04:34">2021-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/07/kotlin/" title="Kotlin"><img src="https://images.pexels.com/photos/2225203/pexels-photo-2225203.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Kotlin"/></a><div class="content"><a class="title" href="/2021/07/07/kotlin/" title="Kotlin">Kotlin</a><time datetime="2021-07-07T06:04:34.788Z" title="发表于 2021-07-07 14:04:34">2021-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/07/greendao/" title="GreenDao"><img src="https://images.pexels.com/photos/1089280/pexels-photo-1089280.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GreenDao"/></a><div class="content"><a class="title" href="/2021/07/07/greendao/" title="GreenDao">GreenDao</a><time datetime="2021-07-07T06:04:34.784Z" title="发表于 2021-07-07 14:04:34">2021-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/07/animation/" title="属性动画"><img src="https://images.pexels.com/photos/590493/pexels-photo-590493.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="属性动画"/></a><div class="content"><a class="title" href="/2021/07/07/animation/" title="属性动画">属性动画</a><time datetime="2021-07-07T06:04:34.778Z" title="发表于 2021-07-07 14:04:34">2021-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/07/Retrofit/" title="Retrofit源码解析"><img src="https://images.pexels.com/photos/1668928/pexels-photo-1668928.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Retrofit源码解析"/></a><div class="content"><a class="title" href="/2021/07/07/Retrofit/" title="Retrofit源码解析">Retrofit源码解析</a><time datetime="2021-07-07T06:04:34.755Z" title="发表于 2021-07-07 14:04:34">2021-07-07</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Android/"><span class="card-category-list-name">Android</span><span class="card-category-list-count">7</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 1.45em; color: rgb(106, 44, 89)">网络</a><a href="/tags/Retrofit/" style="font-size: 1.15em; color: rgb(170, 60, 129)">Retrofit</a><a href="/tags/OkHttp/" style="font-size: 1.45em; color: rgb(165, 157, 175)">OkHttp</a><a href="/tags/Android%E5%8A%A8%E7%94%BB/" style="font-size: 1.15em; color: rgb(111, 57, 136)">Android动画</a><a href="/tags/gradle/" style="font-size: 1.15em; color: rgb(150, 33, 48)">gradle</a><a href="/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 1.15em; color: rgb(178, 183, 165)">脚本</a><a href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%B7%A5%E5%85%B7/" style="font-size: 1.15em; color: rgb(113, 131, 175)">第三方工具</a><a href="/tags/Greendao/" style="font-size: 1.15em; color: rgb(171, 95, 83)">Greendao</a><a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.15em; color: rgb(51, 114, 102)">编程语言</a><a href="/tags/View/" style="font-size: 1.15em; color: rgb(159, 117, 120)">View</a><a href="/tags/%E8%87%AA%E5%AE%9A%E4%B9%89/" style="font-size: 1.15em; color: rgb(79, 102, 181)">自定义</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/07/"><span class="card-archive-list-date">2021 七月</span><span class="card-archive-list-count">8</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">8</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-07-07T09:33:06.220Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 By BitMan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>var preloader = {
   endLoading: () => {
     document.body.style.overflow = 'auto';
     document.getElementById('loading-box').classList.add("loaded")
@@ -166,4 +276,66 @@ More info: Deployment
 
   }
 }
-window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function subtitleType () {
+  fetch('https://v1.hitokoto.cn')
+    .then(response => response.json())
+    .then(data => {
+      if (true) {
+        var from = '出自 ' + data.from
+        var sub = "好好生活".length == 0 ? new Array() : "好好生活".split(',')
+        var both = sub.unshift(data.hitokoto, from)
+        var typed = new Typed('#subtitle', {
+          strings: sub,
+          startDelay: 300,
+          typeSpeed: 150,
+          loop: true,
+          backSpeed: 50,
+        })
+      } else {
+        document.getElementById('subtitle').innerHTML = data.hitokoto
+      }
+    })
+}
+
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}
+</script><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+      false && mermaid.init()
+    })
+  }
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start -->
+  <script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/hexo-github-calendar@1.16/hexo_githubcalendar.js"></script>
+  <script data-pjax>
+        function GithubCalendarConfig(){
+            var git_githubapiurl ="https://python-github-calendar-api.vercel.app/api?KBiteMan";
+            var git_color =['#ebedf0', '#f0fff4', '#dcffe4', '#bef5cb', '#85e89d', '#34d058', '#28a745', '#22863a', '#176f2c', '#165c26', '#144620'];
+            var git_user ="KBiteMan";
+            var parent_div_git = document.getElementById('recent-posts');
+            var git_div_html = '<div class="recent-post-item" style="width:100%;height:auto;padding:10px;"><div id="github_loading" style="width:10%;height:100%;margin:0 auto;display: block"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg></div><div id="github_container"></div></div>';
+            if(parent_div_git && location.pathname =='/'){
+                console.log('已挂载github calendar')
+                // parent_div_git.innerHTML=git_div_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",git_div_html) // 有报错，但不影响使用(支持pjax跳转)
+            };
+            GithubCalendar(git_githubapiurl,git_color,git_user)
+        }
+        if(document.getElementById('recent-posts')){
+            GithubCalendarConfig()
+        }
+    </script>
+    <style>#github_container{min-height:280px}@media screen and (max-width:650px) {#github_container{background-image:;min-height:0px}}</style>
+    <style>undefined</style><!-- hexo injector body_end end --></body></html>
